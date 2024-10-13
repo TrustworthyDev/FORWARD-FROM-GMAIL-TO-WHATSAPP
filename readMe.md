@@ -4,14 +4,19 @@ This is for being forward emails from Gmail to Whatsapp.
 Node server have to run using ngrok.
 And then you need to write code in Google Script below :
 
-###
 function sendEmailToServer() {
+  
   var threads = GmailApp.search('is:unread');
   for(var i = 0; i < threads.length; i++){
+  
     var messages = threads[i].getMessages();
-    for(var j =0; j < messages.length; j++){
+    
+    for(var j =0; j < messages.length; j++) 
+    {
+     
       var message = messages[j];
       if(message.isUnread()){
+      
         var emailData = {
           subject: message.getSubject(),
           body:  message.getPlainBody()
